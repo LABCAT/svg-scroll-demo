@@ -1,5 +1,15 @@
 <template>
-  <div class="item" @mousedown="handleMouseDown" @mouseleave="handleMouseLeave" @mouseup="handleMouseUp" @mousemove="handleMouseMove" ref="slider" >
+  <div 
+    class="item" 
+    @mousedown="handleMouseDown" 
+    @mouseleave="handleMouseLeave" 
+    @mouseup="handleMouseUp"
+    @mousemove="handleMouseMove"
+    @touchstart="handleMouseDown" 
+    @touchend="handleMouseUp"
+    @touchmove="handleMouseMove"
+    ref="slider" 
+  >
     <svg width="3750" height="2500" viewBox="0 0 3750 2500" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M3750 0H0V2500H3750V0Z" fill="#F9EAD5"/>
 <mask id="mask0_401_3" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="48" y="66" width="3617" height="2346">
@@ -1565,7 +1575,9 @@
 </g>
 </g>
 </g>
-<path tabindex="0" d="M1755.95 662C1755.95 755.35 1651.65 846.85 1651.65 846.85C1651.65 846.85 1547.35 755.35 1547.35 662C1547.35 604.4 1594.05 557.7 1651.65 557.7C1709.25 557.7 1755.95 604.4 1755.95 662Z" fill="#F54752"/>
+<a xlink:title="test" xlink:href="https://google.com" target="_blank" @click.prevent="open2" tabindex="0">
+  <path  d="M1755.95 662C1755.95 755.35 1651.65 846.85 1651.65 846.85C1651.65 846.85 1547.35 755.35 1547.35 662C1547.35 604.4 1594.05 557.7 1651.65 557.7C1709.25 557.7 1755.95 604.4 1755.95 662Z" fill="#F54752"/>
+</a>
 <path d="M1651.65 754.15C1702.54 754.15 1743.8 712.893 1743.8 662C1743.8 611.107 1702.54 569.85 1651.65 569.85C1600.76 569.85 1559.5 611.107 1559.5 662C1559.5 712.893 1600.76 754.15 1651.65 754.15Z" fill="#7E3C65"/>
 <mask id="mask9_401_3" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="1572" y="582" width="159" height="160">
 <path d="M1706.3 719.615C1738.05 689.481 1739.35 639.32 1709.22 607.576C1679.08 575.833 1628.92 574.528 1597.18 604.662C1565.44 634.796 1564.13 684.957 1594.26 716.7C1624.4 748.444 1674.56 749.749 1706.3 719.615Z" fill="white"/>
@@ -1969,6 +1981,22 @@
 </svg>
 
   </div>
+  
+<dialog id="modal">
+ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec enim diam vulputate ut. Vitae nunc sed velit dignissim. Tellus cras adipiscing enim eu turpis. Magna fermentum iaculis eu non diam. Sed lectus vestibulum mattis ullamcorper. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Venenatis lectus magna fringilla urna porttitor. Eu consequat ac felis donec et odio pellentesque. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae. Vulputate dignissim suspendisse in est ante in nibh. Metus dictum at tempor commodo ullamcorper a lacus vestibulum. Donec enim diam vulputate ut pharetra sit. Amet nisl suscipit adipiscing bibendum est ultricies. Ut tristique et egestas quis ipsum. Ac placerat vestibulum lectus mauris ultrices eros in cursus. Porttitor leo a diam sollicitudin tempor id. Facilisi etiam dignissim diam quis enim lobortis. Risus commodo viverra maecenas accumsan. Morbi tristique senectus et netus.
+
+Viverra justo nec ultrices dui sapien eget mi proin sed. Sit amet mauris commodo quis imperdiet massa. Sed adipiscing diam donec adipiscing tristique. Cras fermentum odio eu feugiat. Et odio pellentesque diam volutpat commodo sed egestas egestas fringilla. Quis risus sed vulputate odio ut enim blandit. Accumsan sit amet nulla facilisi morbi tempus iaculis. Leo vel fringilla est ullamcorper eget. In nibh mauris cursus mattis molestie a iaculis at erat. Porta lorem mollis aliquam ut. Feugiat nibh sed pulvinar proin. At volutpat diam ut venenatis tellus in metus vulputate. Lectus nulla at volutpat diam. Amet commodo nulla facilisi nullam vehicula ipsum a. Volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim. Enim ut sem viverra aliquet eget sit. Non sodales neque sodales ut etiam sit.
+
+Consequat interdum varius sit amet mattis vulputate enim nulla. Arcu cursus vitae congue mauris. Ut consequat semper viverra nam libero justo laoreet sit amet. Ullamcorper eget nulla facilisi etiam dignissim diam quis enim lobortis. Arcu vitae elementum curabitur vitae nunc sed velit. Eleifend mi in nulla posuere sollicitudin. In ornare quam viverra orci. Porttitor rhoncus dolor purus non enim. Accumsan tortor posuere ac ut consequat. Euismod lacinia at quis risus sed vulputate odio ut. Tincidunt augue interdum velit euismod in pellentesque.
+
+Dictum sit amet justo donec enim diam vulputate ut pharetra. Interdum varius sit amet mattis vulputate enim nulla aliquet porttitor. Pellentesque id nibh tortor id. At tempor commodo ullamcorper a lacus vestibulum. Facilisi cras fermentum odio eu feugiat pretium nibh ipsum consequat. Mauris vitae ultricies leo integer. At erat pellentesque adipiscing commodo elit at. Semper risus in hendrerit gravida rutrum quisque. Cursus mattis molestie a iaculis at erat. At tempor commodo ullamcorper a lacus vestibulum sed arcu. Ut pharetra sit amet aliquam id diam maecenas ultricies. In tellus integer feugiat scelerisque varius morbi enim nunc. In nulla posuere sollicitudin aliquam. Elit scelerisque mauris pellentesque pulvinar pellentesque habitant. Eget dolor morbi non arcu.
+
+Condimentum lacinia quis vel eros donec ac odio. Et pharetra pharetra massa massa ultricies mi. Ut diam quam nulla porttitor massa id neque aliquam. Mauris in aliquam sem fringilla ut. Quam vulputate dignissim suspendisse in. Eget nunc scelerisque viverra mauris in aliquam. Egestas diam in arcu cursus euismod quis viverra nibh cras. Orci phasellus egestas tellus rutrum tellus pellentesque eu. Morbi tristique senectus et netus et malesuada fames ac turpis. Nulla facilisi etiam dignissim diam. Sed cras ornare arcu dui. Urna et pharetra pharetra massa. Hendrerit dolor magna eget est lorem ipsum dolor sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas.
+</dialog>
+
+<dialog id="modal2">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo integer malesuada nunc vel risus. Dolor morbi non arcu risus quis varius quam. Orci a scelerisque purus semper eget duis at tellus at. Ante metus dictum at tempor commodo ullamcorper a lacus. Arcu odio ut sem nulla pharetra diam sit amet. Quis blandit turpis cursus in. Sed id semper risus in hendrerit gravida. Placerat orci nulla pellentesque dignissim enim sit amet venenatis. Sed tempus urna et pharetra pharetra massa massa ultricies.
+</dialog>
 </template>
 
 <script setup>
@@ -1981,10 +2009,13 @@ const scrollTop = ref(0);
 const handleMouseDown = (e) => {
   isDown.value = true;
   slider.value.classList.add('active');
-  startX.value = e.pageX - slider.value.offsetLeft;
-  startY.value = e.pageY - slider.value.offsetTop;
+  const pageX = e.type === 'touchstart' ? e.touches[0].pageX : e.pageX;
+  const pageY = e.type === 'touchstart' ? e.touches[0].pageY : e.pageY;
+  startX.value = pageX - slider.value.offsetLeft;
+  startY.value = pageY - slider.value.offsetTop;
   scrollLeft.value = slider.value.scrollLeft;
   scrollTop.value = slider.value.scrollTop;
+  console.log(e.pageX);
 };
 
 const handleMouseLeave = () => {
@@ -2000,8 +2031,10 @@ const handleMouseUp = () => {
 const handleMouseMove = (e) => {
   if (!isDown.value) return;
   e.preventDefault();
-  const x = e.pageX - slider.value.offsetLeft;
-  const y = e.pageY - slider.value.offsetTop;
+  const pageX = e.type === 'touchmove' ? e.touches[0].pageX : e.pageX;
+  const pageY = e.type === 'touchmove' ? e.touches[0].pageY : e.pageY;
+  const x = pageX - slider.value.offsetLeft;
+  const y = pageY - slider.value.offsetTop;
   const walkHori = (x - startX.value) * 3; // scroll-fast
   const walkVerti = (y - startY.value) * 3; // scroll-fast
   slider.value.scrollLeft = scrollLeft.value - walkHori;
@@ -2009,6 +2042,14 @@ const handleMouseMove = (e) => {
 };
 
 const slider = ref(null);
+
+const open = () => {
+  window.modal.showModal();
+}
+
+const open2 = () => {
+  window.modal2.showModal();
+}
 
 </script>
 
