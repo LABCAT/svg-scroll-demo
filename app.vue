@@ -1,4 +1,5 @@
 <template>
+<dialog id="SVGmodal">
   <div 
     class="item" 
     @mousedown="handleMouseDown" 
@@ -10,6 +11,7 @@
     @touchmove="handleMouseMove"
     ref="slider" 
   >
+  <button @click.prevent="closeSVG" id="SVGmodalClose">close</button>
     <svg width="3750" height="2500" viewBox="0 0 3750 2500" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M3750 0H0V2500H3750V0Z" fill="#F9EAD5"/>
 <mask id="mask0_401_3" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="48" y="66" width="3617" height="2346">
@@ -1982,6 +1984,10 @@
 
   </div>
   
+</dialog>
+  
+  <button @click.prevent="openSVG">open svg</button>
+  
 <dialog id="modal">
  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec enim diam vulputate ut. Vitae nunc sed velit dignissim. Tellus cras adipiscing enim eu turpis. Magna fermentum iaculis eu non diam. Sed lectus vestibulum mattis ullamcorper. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Venenatis lectus magna fringilla urna porttitor. Eu consequat ac felis donec et odio pellentesque. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae. Vulputate dignissim suspendisse in est ante in nibh. Metus dictum at tempor commodo ullamcorper a lacus vestibulum. Donec enim diam vulputate ut pharetra sit. Amet nisl suscipit adipiscing bibendum est ultricies. Ut tristique et egestas quis ipsum. Ac placerat vestibulum lectus mauris ultrices eros in cursus. Porttitor leo a diam sollicitudin tempor id. Facilisi etiam dignissim diam quis enim lobortis. Risus commodo viverra maecenas accumsan. Morbi tristique senectus et netus.
 
@@ -2051,6 +2057,28 @@ const open2 = () => {
   window.modal2.showModal();
 }
 
+const openSVG = () => {
+  window.SVGmodal.showModal();
+}
+
+const closeSVG = () => {
+  window.SVGmodal.close();
+}
+
+onMounted(() => {
+  console.log('myheader mounted');
+
+  if (process.browser) {
+   console.log(window)
+
+   window.SVGmodal.addEventListener('transitionend', (e) => {
+    console.log(document.getElementById('SVGmodalClose'));
+     window.setTimeout(() => document.getElementById('SVGmodalClose').focus(), 500);
+    
+  });
+  }
+});
+
 </script>
 
 <style>
@@ -2065,5 +2093,29 @@ body {
   height: 100vh;
   overflow: hidden;
 }
+
+#SVGmodal {
+  padding: 0;
+  margin: 0;
+  min-width: 100%;
+  min-height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#SVGmodalClose {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+dialog[open]:not(:focus-within) {
+  background-color: rgba(255, 255, 255, 0.7);
+  transition: background-color 0.01s;
+}
+
 
 </style>
