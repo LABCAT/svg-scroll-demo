@@ -1,4 +1,5 @@
 <template>
+<focus-trap v-model:active="SVGmodalIsActive">
 <dialog id="SVGmodal">
   <div 
     class="item" 
@@ -1985,10 +1986,12 @@
   </div>
   
 </dialog>
+</focus-trap>
   
   <button @click.prevent="openSVG">open svg</button>
-  
+<focus-trap v-model:active="modalIsActive"> 
 <dialog id="modal">
+<button @click.prevent="close">close</button>
  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Donec enim diam vulputate ut. Vitae nunc sed velit dignissim. Tellus cras adipiscing enim eu turpis. Magna fermentum iaculis eu non diam. Sed lectus vestibulum mattis ullamcorper. Egestas tellus rutrum tellus pellentesque eu tincidunt tortor aliquam. Venenatis lectus magna fringilla urna porttitor. Eu consequat ac felis donec et odio pellentesque. Tortor pretium viverra suspendisse potenti nullam ac tortor vitae. Vulputate dignissim suspendisse in est ante in nibh. Metus dictum at tempor commodo ullamcorper a lacus vestibulum. Donec enim diam vulputate ut pharetra sit. Amet nisl suscipit adipiscing bibendum est ultricies. Ut tristique et egestas quis ipsum. Ac placerat vestibulum lectus mauris ultrices eros in cursus. Porttitor leo a diam sollicitudin tempor id. Facilisi etiam dignissim diam quis enim lobortis. Risus commodo viverra maecenas accumsan. Morbi tristique senectus et netus.
 
 Viverra justo nec ultrices dui sapien eget mi proin sed. Sit amet mauris commodo quis imperdiet massa. Sed adipiscing diam donec adipiscing tristique. Cras fermentum odio eu feugiat. Et odio pellentesque diam volutpat commodo sed egestas egestas fringilla. Quis risus sed vulputate odio ut enim blandit. Accumsan sit amet nulla facilisi morbi tempus iaculis. Leo vel fringilla est ullamcorper eget. In nibh mauris cursus mattis molestie a iaculis at erat. Porta lorem mollis aliquam ut. Feugiat nibh sed pulvinar proin. At volutpat diam ut venenatis tellus in metus vulputate. Lectus nulla at volutpat diam. Amet commodo nulla facilisi nullam vehicula ipsum a. Volutpat lacus laoreet non curabitur gravida arcu ac tortor dignissim. Enim ut sem viverra aliquet eget sit. Non sodales neque sodales ut etiam sit.
@@ -1999,13 +2002,18 @@ Dictum sit amet justo donec enim diam vulputate ut pharetra. Interdum varius sit
 
 Condimentum lacinia quis vel eros donec ac odio. Et pharetra pharetra massa massa ultricies mi. Ut diam quam nulla porttitor massa id neque aliquam. Mauris in aliquam sem fringilla ut. Quam vulputate dignissim suspendisse in. Eget nunc scelerisque viverra mauris in aliquam. Egestas diam in arcu cursus euismod quis viverra nibh cras. Orci phasellus egestas tellus rutrum tellus pellentesque eu. Morbi tristique senectus et netus et malesuada fames ac turpis. Nulla facilisi etiam dignissim diam. Sed cras ornare arcu dui. Urna et pharetra pharetra massa. Hendrerit dolor magna eget est lorem ipsum dolor sit amet. Tristique senectus et netus et malesuada fames ac turpis egestas.
 </dialog>
+</focus-trap>
 
+<focus-trap v-model:active="modal2IsActive">
 <dialog id="modal2">
+<button @click.prevent="close2">close</button>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Leo integer malesuada nunc vel risus. Dolor morbi non arcu risus quis varius quam. Orci a scelerisque purus semper eget duis at tellus at. Ante metus dictum at tempor commodo ullamcorper a lacus. Arcu odio ut sem nulla pharetra diam sit amet. Quis blandit turpis cursus in. Sed id semper risus in hendrerit gravida. Placerat orci nulla pellentesque dignissim enim sit amet venenatis. Sed tempus urna et pharetra pharetra massa massa ultricies.
 </dialog>
+</focus-trap>
 </template>
 
 <script setup>
+const slider = ref(null);
 const isDown = ref(false);
 const startX = ref(0);
 const startY = ref(0);
@@ -2021,7 +2029,6 @@ const handleMouseDown = (e) => {
   startY.value = pageY - slider.value.offsetTop;
   scrollLeft.value = slider.value.scrollLeft;
   scrollTop.value = slider.value.scrollTop;
-  console.log(e.pageX);
 };
 
 const handleMouseLeave = () => {
@@ -2047,38 +2054,39 @@ const handleMouseMove = (e) => {
   slider.value.scrollTop = scrollTop.value - walkVerti;
 };
 
-const slider = ref(null);
-
-const open = () => {
-  window.modal.showModal();
-}
-
-const open2 = () => {
-  window.modal2.showModal();
-}
+const SVGmodalIsActive = ref(false);
+const modalIsActive = ref(false);
+const modal2IsActive = ref(false);
 
 const openSVG = () => {
   window.SVGmodal.showModal();
+  SVGmodalIsActive.value = true;
 }
 
 const closeSVG = () => {
   window.SVGmodal.close();
+  SVGmodalIsActive.value = false;
+
+}
+const open = () => {
+  window.modal.showModal();
+  modalIsActive.value = true;
 }
 
-onMounted(() => {
-  console.log('myheader mounted');
+const close = () => {
+  window.modal.close();
+  modalIsActive.value = false;
+}
 
-  if (process.browser) {
-   console.log(window)
+const open2 = () => {
+  window.modal2.showModal();
+  modal2IsActive.value = true;
+}
 
-   window.SVGmodal.addEventListener('transitionend', (e) => {
-    console.log(document.getElementById('SVGmodalClose'));
-     window.setTimeout(() => document.getElementById('SVGmodalClose').focus(), 500);
-    
-  });
-  }
-});
-
+const close2 = () => {
+  window.modal2.close();
+  modal2IsActive.value = false;
+}
 </script>
 
 <style>
